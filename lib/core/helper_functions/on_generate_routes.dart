@@ -7,17 +7,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SplashView());
     default:
       return MaterialPageRoute(builder: (context)=> const Scaffold());
-      // return MaterialPageRoute(
-      //   builder: (context) =>
-      //       Scaffold(
-      //         appBar: AppBar(
-      //           title: const Text('404 Not Found'),
-      //         ),
-      //         body: Center(
-      //           child: const Text('Page not found'),
-      //         ),
-      //       ),
-      // );
+
 
   }
 }
