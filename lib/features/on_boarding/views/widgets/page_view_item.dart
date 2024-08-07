@@ -1,20 +1,22 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruit_hub/features/auth/views/login_view.dart';
+
+import '../../../../core/utils/app_text_styles.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem(
       {super.key,
-        required this.image,
-        required this.backgroundImage,
-        required this.subtitle,
-        required this.title, required this.isVisible});
+      required this.image,
+      required this.backgroundImage,
+      required this.subtitle,
+      required this.title,
+      required this.isVisible});
 
   final String image, backgroundImage;
   final String subtitle;
   final Widget title;
   final bool isVisible;
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,31 +41,42 @@ class PageViewItem extends StatelessWidget {
               ),
               Visibility(
                 visible: isVisible,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                      'تخطي'
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(LoginView.routeName);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(37.0),
+                    child: Text(
+                      'تخطي',
+                      style: TextStyles.regular13.copyWith(
+                        color: Color(0xFF4E5456),
+                      ),
+                    ),
                   ),
                 ),
               )
             ],
-
           ),
         ),
         SizedBox(
-          height:64,
+          height: 64,
         ),
         title,
         SizedBox(
-          height:24,
+          height: 24,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text(subtitle,
+          child: Text(
+            subtitle,
             textAlign: TextAlign.center,
+            style: TextStyles.semiBold13.copyWith(
+              color: Color(0xFF4E5456),
+            ),
           ),
         )
-
       ],
     );
   }
