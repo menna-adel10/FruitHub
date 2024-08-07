@@ -11,13 +11,32 @@ class OnBoardingViewBody extends StatefulWidget {
   State<OnBoardingViewBody> createState() => _OnBoardingViewBodyState();
 }
 
+
 class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
+
+  late PageController pageController;
+  var currentPage = 0;
+  void initState(){
+    pageController = PageController();
+    pageController.addListener((){
+      //update current page
+      currentPage = pageController.page!.round();
+    });
+    super.initState();
+  }
+  void dispose(){
+    pageController = PageController();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
-          child: OnBoardingPageView(),
+          child: OnBoardingPageView(
+            pageController: pageController,
+          ),
         ),
         DotsIndicator(
           dotsCount: 2,
