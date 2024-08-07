@@ -1,7 +1,10 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/constants.dart';
+import 'package:fruit_hub/core/services/shared_preferences_singlton.dart';
 import 'package:fruit_hub/core/utils/colors.dart';
 import '../../../../core/utils/custom_button.dart';
+import '../../../auth/views/login_view.dart';
 import 'on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -58,7 +61,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           maintainAnimation: true,
           maintainState: true,
           child: CustomButton(
-            onPressed: () {},
+            onPressed: () {
+              //akhzen key 34an y2oly en lpage de etshafet
+              prefs.setBool(kIsOnBoardingViewSeen, true);
+              Navigator.of(context)
+                  .pushReplacementNamed(LoginView.routeName);
+            },
             text: 'ابدأ الان',
           ),
         ),
