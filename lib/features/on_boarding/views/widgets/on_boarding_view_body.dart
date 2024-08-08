@@ -14,7 +14,6 @@ class OnBoardingViewBody extends StatefulWidget {
   State<OnBoardingViewBody> createState() => _OnBoardingViewBodyState();
 }
 
-
 class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
 
   late PageController pageController;
