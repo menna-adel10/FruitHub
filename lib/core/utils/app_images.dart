@@ -14,4 +14,13 @@ class Assets{
 
   static const String imagesSplashBottom = "assets/images/Circles.svg";
 
+  static const String imagesGoogleIcon = "assets/images/Google.svg";
+
+  static const String imagesFaceBookIcon = "assets/images/facebookIcon.svg";
+
+  static const String imagesAppleIcon = "assets/images/apple.svg";
+
+
+
+
 }
