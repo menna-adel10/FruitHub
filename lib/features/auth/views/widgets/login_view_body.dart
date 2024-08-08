@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/constants.dart';
 import 'package:fruit_hub/core/utils/colors.dart';
 import 'package:fruit_hub/core/utils/custom_button.dart';
-import 'package:fruit_hub/features/auth/views/social_login_button.dart';
+import 'package:fruit_hub/features/auth/views/widgets/social_login_button.dart';
 import 'package:fruit_hub/features/auth/views/widgets/or_divider.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_text_styles.dart';
