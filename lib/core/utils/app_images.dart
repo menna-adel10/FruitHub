@@ -2,6 +2,8 @@ class Assets{
 
   static const String imagesLogo = "assets/images/logo.svg";
 
+  static const String imagesCheckBox = "assets/images/checkBox.svg";
+
   static const String imagesPageViewItem1 = "assets/images/page_view_item1.svg";
 
   static const String imagesPageViewItem2 = "assets/images/page_view_item2.svg";
