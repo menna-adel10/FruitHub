@@ -24,12 +24,14 @@ class LoginViewBody extends StatelessWidget {
             ),
             CustomTextField(
               hintText: 'البريد الاكتروني',
+              TextInputField: TextInputType.emailAddress,
             ),
             SizedBox(
               height: 16,
             ),
             CustomTextField(
               hintText: 'كلمة المرور',
+              TextInputField: TextInputType.visiblePassword,
               icon: Icon(
                 Icons.remove_red_eye_rounded,
                 color: Color(0xffC9CECF),
