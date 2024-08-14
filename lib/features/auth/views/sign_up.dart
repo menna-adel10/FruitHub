@@ -11,7 +11,7 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, title: 'حساب جديد',),
-      body: SignUpViewBody(),
+      body: SignupViewBody(),
     );
 
   }

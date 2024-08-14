@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/utils/colors.dart';
 import 'custom_check_box.dart';
@@ -21,8 +19,9 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
       children: [
         CustomCheckBox(
           onChecked: (value) {
-            isTermsAccepted = value;
-            setState(() {});
+            setState(() {
+              isTermsAccepted = value;
+            });
           },
           isChecked: isTermsAccepted,
         ),
