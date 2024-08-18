@@ -1,8 +1,10 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fruit_hub/generated/intl/messages_ar.dart';
+
+import '../errors/exceptions.dart';
 
 class FirebaseAuthServices {
-  Future<User?> createUserWithEmailAndPassword(
+  Future<User> createUserWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
       final credential =
@@ -10,15 +12,22 @@ class FirebaseAuthServices {
         email: email,
         password: password,
       );
+      //return user
+      return credential.user!;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        throw CustomException(message: 'The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        throw CustomException(
+            message: 'The account already exists for that email');
+      } else {
+        throw CustomException(
+            message: 'An error occurred. Please try again later');
       }
     } catch (e) {
-      print(e);
+      throw CustomException(
+          message: 'An error occurred. Please try again later');
     }
-    return null;
+
   }
 }
