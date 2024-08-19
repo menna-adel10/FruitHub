@@ -7,6 +7,4 @@ class CustomException implements Exception{
   String toString() {
     return super.toString();
   }
-
-
 }

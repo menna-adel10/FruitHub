@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/constants.dart';
 import 'package:fruit_hub/features/auth/views/widgets/terms_and_conditions.dart';
-
 import '../../../../core/utils/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import 'dont_have_an_account.dart';
