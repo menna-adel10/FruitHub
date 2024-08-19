@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fruit_hub/generated/intl/messages_ar.dart';
 
 import '../errors/exceptions.dart';
 
@@ -28,6 +27,5 @@ class FirebaseAuthServices {
       throw CustomException(
           message: 'An error occurred. Please try again later');
     }
-
   }
 }
