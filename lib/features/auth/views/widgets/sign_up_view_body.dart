@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/constants.dart';
 import 'package:fruit_hub/features/auth/persentation/manager/signup_cubits/signup_cubit.dart';
 import 'package:fruit_hub/features/auth/persentation/manager/signup_cubits/signup_state.dart';
+import 'package:fruit_hub/core/utils/password_field.dart';
 import 'package:fruit_hub/features/auth/views/widgets/terms_and_conditions.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../core/helper_functions/build_error_bar.dart';
@@ -53,19 +54,23 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
                 hintText: 'البريد الإلكتروني',
               ),
+
               const SizedBox(
                 height: 16,
               ),
-              CustomTextField(
+              PasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
-                hintText: 'كلمة المرور',
               ),
               const SizedBox(
                 height: 16,
               ),
-              TermsAndConditions(),
+              TermsAndConditions(
+                onChanged: (value){
+                  isTermsAccepted = value;
+                },
+              ),
               const SizedBox(
                 height: 30,
               ),
@@ -73,8 +78,12 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context.read<SignupCubit>().createUserWithEmailAndPassword(
-                        email, password, userName);
+                    if (isTermsAccepted) {
+                      context.read<SignupCubit>().createUserWithEmailAndPassword(
+                          email, password, userName);
+                    }else{
+                      buildErrorBar(context, 'يجب عليك الموافقة علي الشروط والاحكام');
+                    }
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
@@ -95,6 +104,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   }
 }
 
+
 class SignUpViewBodyBlocConsumer extends StatelessWidget {
   const SignUpViewBodyBlocConsumer({super.key});
 
@@ -102,10 +112,9 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
-        if (state is SignupSuccess) {
-        }
+        if (state is SignupSuccess) {}
         if (state is SignupFailure) {
-          buildErrorBar(context,state.message);
+          buildErrorBar(context, state.message);
         }
       },
       builder: (context, state) {
@@ -115,5 +124,4 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
       },
     );
   }
-
 }
