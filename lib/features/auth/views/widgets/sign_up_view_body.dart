@@ -6,6 +6,7 @@ import 'package:fruit_hub/features/auth/persentation/manager/signup_cubits/signu
 import 'package:fruit_hub/features/auth/persentation/manager/signup_cubits/signup_state.dart';
 import 'package:fruit_hub/features/auth/views/widgets/terms_and_conditions.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import '../../../../core/helper_functions/build_error_bar.dart';
 import '../../../../core/utils/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import 'dont_have_an_account.dart';
@@ -102,14 +103,9 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
         if (state is SignupSuccess) {
-         // Navigator.of(context).pop();
         }
         if (state is SignupFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.message),
-            ),
-          );
+          buildErrorBar(context,state.message);
         }
       },
       builder: (context, state) {
@@ -119,4 +115,5 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
       },
     );
   }
+
 }
