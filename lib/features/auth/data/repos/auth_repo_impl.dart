@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
@@ -21,19 +23,14 @@ class AuthRepoImpl extends AuthRepo {
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
     } catch (e) {
+
+      log('Exception in AuthRepoImpl.createUserWithEmailAndPass: ${e.toString()}',);
+
       return left(
         ServerFailure(
-          e.toString(),
+          'حدث خطأ ما الرجاء المحاولة مرة اخري',
         ),
       );
     }
   }
-}
-class BackEndAuthRepoImpl extends AuthRepo{
-  @override
-  Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(String email, String password, String name) {
-    // TODO: implement createUserWithEmailAndPassword
-    throw UnimplementedError();
-  }
-  
 }
