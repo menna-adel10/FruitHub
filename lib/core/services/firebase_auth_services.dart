@@ -29,7 +29,7 @@ class FirebaseAuthServices {
     }
   }
 
-  Future<User?> signInwithEmailAndPassword(
+  Future<User> signInWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
       final credential = await FirebaseAuth.instance
@@ -50,6 +50,8 @@ class FirebaseAuthServices {
       }
     } catch (e) {
       log("Exception in FirebaseAuthService.signInWithEmailAndPassword :${e.toString()}");
+      throw CustomException(message: 'لقد حدث خطأ ما الرجاء المحاولة مرة اخري');
+
     }
   }
 }
