@@ -9,8 +9,8 @@ import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import 'dont_have_an_account.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class SignInViewBody extends StatelessWidget {
+  const SignInViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

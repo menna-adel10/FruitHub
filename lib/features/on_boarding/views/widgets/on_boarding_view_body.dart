@@ -4,7 +4,7 @@ import 'package:fruit_hub/constants.dart';
 import 'package:fruit_hub/core/services/shared_preferences_singlton.dart';
 import 'package:fruit_hub/core/utils/colors.dart';
 import '../../../../core/utils/custom_button.dart';
-import '../../../auth/views/login_view.dart';
+import '../../../auth/views/sign_in_view.dart';
 import 'on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -64,7 +64,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               //akhzen key 34an y2oly en lpage de etshafet
               prefs.setBool(kIsOnBoardingViewSeen, true);
               Navigator.of(context)
-                  .pushReplacementNamed(LoginView.routeName);
+                  .pushReplacementNamed(SignInView.routeName);
             },
             text: 'ابدأ الان',
           ),
