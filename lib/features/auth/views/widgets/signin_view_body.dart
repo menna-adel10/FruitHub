@@ -111,7 +111,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               SocialLoginButton(
                   image: Assets.imagesAppleIcon,
                   title: 'تسجيل بواسطة فيس بوك',
-                  onPressed: () {}),
+                  onPressed: () {
+                    context.read<SignInCubit>().signInWithFacebook();
+                  }),
               SizedBox(
                 height: 16,
               ),
