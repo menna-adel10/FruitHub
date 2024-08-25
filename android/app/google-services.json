@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "952754611944",
+    "project_id": "fruit-app-ac11c",
+    "storage_bucket": "fruit-app-ac11c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952754611944:android:dd776439aa92ba7b994b5d",
+        "android_client_info": {
+          "package_name": "com.menna.fruit_hub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKEasezOqPLgiOJDx2sX9tJgLtiWkdwCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
