@@ -5,6 +5,7 @@ import 'package:fruit_hub/constants.dart';
 import 'package:fruit_hub/features/auth/persentation/manager/signup_cubits/signup_cubit.dart';
 import 'package:fruit_hub/features/auth/persentation/manager/signup_cubits/signup_state.dart';
 import 'package:fruit_hub/core/utils/password_field.dart';
+import 'package:fruit_hub/features/auth/views/widgets/have_an_account.dart';
 import 'package:fruit_hub/features/auth/views/widgets/terms_and_conditions.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../core/helper_functions/build_error_bar.dart';
@@ -95,7 +96,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               const SizedBox(
                 height: 26,
               ),
-              const DontHaveAnAccountWidget(),
+              const HaveAnAccount(),
             ],
           ),
         ),
